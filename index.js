@@ -47,8 +47,8 @@ const md5Hashing = () => {
 const epochConverter = () => {
   const userOption = readLineSync.question("1 toHumanDate\n2 toEpoch\n");
   if (parseInt(userOption) === 1) {
-    const userOption = readLineSync.question("Enter Epoch time\n");
-    var myDate = new Date(userOption * 1000);
+    const epochTime = readLineSync.question("Enter Epoch time\n");
+    var myDate = new Date(epochTime * 1000);
     console.log(myDate.toLocaleString());
   } else if (parseInt(userOption) === 2) {
     console.log("Enter time as follows...");
@@ -79,7 +79,18 @@ const hexToRgb = () => {
 };
 
 const temperatureConverters = () => {
-  console.log("building in process...");
+  const userOption = readLineSync.question(
+    "1 Celsius to Fahrenheit\n2 Fahrenheit to Celsius\n"
+  );
+  if (parseInt(userOption) === 1) {
+    const celsius = readLineSync.question("Enter Celsius temperature\n");
+    const fahrenheit = celsius * (9 / 5) + 32;
+    console.log(`Fahrenheit : ${fahrenheit}`);
+  } else if (parseInt(userOption) === 2) {
+    const fahrenheit = readLineSync.question("Enter Fahrenheit temperature\n");
+    const celsius = ((fahrenheit - 32) * 5) / 9;
+    console.log(`Celsius : ${celsius}`);
+  }
 };
 
 const startApp = (utills) => {
@@ -113,7 +124,7 @@ const startApp = (utills) => {
     case 9:
       hexToRgb();
       break;
-    case 9:
+    case 10:
       temperatureConverters();
       break;
 

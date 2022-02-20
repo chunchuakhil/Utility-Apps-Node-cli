@@ -67,11 +67,59 @@ const epochConverter = () => {
 };
 
 const convertersBinaryDecimalHexOctal = () => {
-  console.log("building in process...");
+  const convertionsTypes = [
+    "Binary to Decimal",
+    "Binary to Hex",
+    "Binary to Octal",
+    "Decimal to Binary",
+    "Decimal to Hex",
+    "Decimal to Octal",
+    "Hex to Binary",
+    "Hex to Decimal",
+    "Hex to Octal",
+    "Octal to Binary",
+    "Octal to Decimal",
+    "Octal to Hex",
+  ];
+  convertionsTypes.forEach((convertionType, index) => {
+    console.log(`${index + 1} ${convertionType}`);
+  });
+  const userOption = readLineSync.question("Select your option\n");
+  const number = readLineSync.question("Enter  number\n");
+  if (
+    parseInt(userOption) === 1 ||
+    parseInt(userOption) === 2 ||
+    parseInt(userOption) === 3 ||
+    parseInt(userOption) === 8
+  ) {
+    console.log(parseInt(number, 2));
+  } else if (
+    parseInt(userOption) === 4 ||
+    parseInt(userOption) === 7 ||
+    parseInt(userOption) === 10
+  ) {
+    console.log(number.toString(2));
+  } else if (parseInt(userOption) === 5 || parseInt(userOption) === 12) {
+    console.log(number.toString(16));
+  } else if (parseInt(userOption) === 6 || parseInt(userOption) === 9) {
+    console.log(number.toString(8));
+  } else if (parseInt(userOption) === 11) {
+    console.log(number.toString(11));
+  }
 };
 
 const rgbToHex = () => {
-  console.log("building in process...");
+  const redColor = readLineSync.question("Enter red color code\n");
+  const blueColor = readLineSync.question("Enter blue color code\n");
+  const greenColor = readLineSync.question("Enter green color code\n");
+  function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+  }
+  function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+  }
+  console.log(rgbToHex(redColor, blueColor, greenColor));
 };
 
 const hexToRgb = () => {
@@ -95,7 +143,7 @@ const temperatureConverters = () => {
 
 const startApp = (utills) => {
   utills.forEach((feature, index) => console.log(`${index + 1} ${feature}`));
-  const userOption = readLineSync.question("Select your option...");
+  const userOption = readLineSync.question("Select your option...\n");
   switch (parseInt(userOption)) {
     case 1:
       urlEncoder();

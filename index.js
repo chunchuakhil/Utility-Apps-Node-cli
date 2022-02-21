@@ -116,14 +116,18 @@ const rgbToHex = () => {
     var hex = c.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
   }
-  function rgbToHex(r, g, b) {
+  function toHex(r, g, b) {
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
   }
-  console.log(rgbToHex(redColor, blueColor, greenColor));
+  console.log(toHex(redColor, blueColor, greenColor));
 };
 
 const hexToRgb = () => {
-  console.log("building in process...");
+  const hexNumber=readLineSync.question('Enter Hex number\n')
+  const red = parseInt(hexNumber.slice(1, 3), 16)
+    const green = parseInt(hexNumber.slice(3, 5), 16)
+    const blue = parseInt(hexNumber.slice(5, 7), 16)
+    console.log(`red: ${red}, green: ${green}, blue: ${blue}`)
 };
 
 const temperatureConverters = () => {
